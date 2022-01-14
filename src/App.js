@@ -1,10 +1,19 @@
 import React from 'react';
+import { createTheme, ThemeProvider } from '@mui/material';
+import myTheme from './theme';
+import AppWrapper from './components/pages/Appwrapper'
+
+
+
+const theme = createTheme(myTheme)
 
 const App = () => {
   return (
-    <div>
-      
-    </div>
+    <>
+    <ThemeProvider theme={theme}>
+      <AppWrapper />
+    </ThemeProvider>
+    </>
   );
 }
 
