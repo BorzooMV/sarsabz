@@ -6,7 +6,8 @@ const myTheme = {
         secondary:{
             main: "#fbb769"
         }
-    }
+    },
+    direction: 'rtl'
 }
 
 export default myTheme;
