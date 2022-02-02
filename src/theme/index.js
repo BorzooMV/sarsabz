@@ -7,7 +7,10 @@ const myTheme = {
             main: "#fbb769"
         }
     },
-    direction: 'rtl'
+    direction: 'rtl',
+    typography:{
+        fontFamily:"IranSans"
+    }
 }
 
 export default myTheme;
