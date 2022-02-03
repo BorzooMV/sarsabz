@@ -2,10 +2,12 @@ import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
 import NotFound from './pages/404';
+import Dashboard from './pages/dashboard';
 
 const Navigation = () => {
   return (
     <Routes>
+      <Route path="/" element={<Dashboard />} />
       <Route path="/login" element={<Login />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
