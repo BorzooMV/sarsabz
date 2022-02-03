@@ -1,16 +1,16 @@
-import React from "react";
-import { Route, Routes } from "react-router-dom";
-import Login from "./pages/Login";
-import NotFound from "./pages/404";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Login from './pages/Login';
+import NotFound from './pages/404';
 
 const Navigation = () => {
-    return(
-        <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="*" element={<NotFound />} />
-        </Routes>
-    )
-}
+  return (
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+};
 
 export default Navigation;
 
