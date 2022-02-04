@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
 const Dashboard = () => {
   const classes = useStyles();
   return (
-    <Grid Container className={classes.root}>
+    <Grid container className={classes.root}>
       <Grid item xs={12}>
         <UserInfo />
       </Grid>
