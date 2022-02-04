@@ -6,6 +6,9 @@ const myTheme = {
     secondary: {
       main: '#fbb769',
     },
+    white: {
+      main: '#fff',
+    },
   },
   direction: 'rtl',
   typography: {

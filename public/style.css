@@ -12,3 +12,10 @@ body{
 	overflow-x: hidden;
 }
 
+a,
+a:active,
+a:visited{
+	text-decoration:none;
+	color: inherit;
+}
+
