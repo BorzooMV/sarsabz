@@ -5,8 +5,7 @@ import AppWrapper from './components/Appwrapper';
 import { BrowserRouter } from 'react-router-dom';
 import Navigation from './routes';
 
-
-const theme = createTheme(myTheme)
+const theme = createTheme(myTheme);
 
 const App = () => {
   return (
@@ -18,6 +17,6 @@ const App = () => {
       </BrowserRouter>
     </ThemeProvider>
   );
-}
+};
 
 export default App;
