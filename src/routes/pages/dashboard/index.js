@@ -1,11 +1,30 @@
 import React from 'react';
-import AppWrapper from '../../../components/Appwrapper';
+import { Grid, Stack, Typography } from '@mui/material';
+import { Box } from '@mui/system';
+import { makeStyles } from '@mui/styles';
+import UserInfo from './UserInfo';
+import FeatureList from './FeatureList';
 
+const useStyles = makeStyles((theme) => ({
+  root: {
+    margin: 'auto',
+    width: '80%',
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+}));
 const Dashboard = () => {
+  const classes = useStyles();
   return (
-    <AppWrapper>
-      <h1>This is dashboard</h1>
-    </AppWrapper>
+    <Grid container className={classes.root}>
+      <Grid item xs={12}>
+        <UserInfo />
+      </Grid>
+      <Grid item xs={12}>
+        <FeatureList />
+      </Grid>
+    </Grid>
   );
 };
 

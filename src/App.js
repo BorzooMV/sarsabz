@@ -1,7 +1,7 @@
 import React from 'react';
 import { createTheme, ThemeProvider } from '@mui/material';
 import myTheme from './theme';
-import AppWrapper from './components/Appwrapper';
+import AppWrapper from './@components/Appwrapper';
 import { BrowserRouter } from 'react-router-dom';
 import Navigation from './routes';
 
