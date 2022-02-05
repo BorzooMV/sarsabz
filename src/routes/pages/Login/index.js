@@ -9,7 +9,7 @@ import {
   Typography,
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import loginVase from './assets/loginVase.jpg';
+import loginVase from '../../../@assets/loginVase.jpg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
