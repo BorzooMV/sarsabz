@@ -2,16 +2,12 @@ import React from 'react';
 import { Grid, Stack, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { makeStyles } from '@mui/styles';
-import UserInfo from './UserInfo';
-import FeatureList from './FeatureList';
+import Top from './Top';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: 'auto',
-    width: '80%',
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
+    width: '85%',
+    margin: '20px auto',
   },
 }));
 const Dashboard = () => {
@@ -19,11 +15,9 @@ const Dashboard = () => {
   return (
     <Grid container className={classes.root}>
       <Grid item xs={12}>
-        <UserInfo />
+        <Top />
       </Grid>
-      <Grid item xs={12}>
-        <FeatureList />
-      </Grid>
+      <Grid item xs={12}></Grid>
     </Grid>
   );
 };

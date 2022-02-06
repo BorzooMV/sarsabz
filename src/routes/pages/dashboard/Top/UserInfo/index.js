@@ -2,16 +2,15 @@ import React from 'react';
 import { Avatar, Chip, Divider, Stack, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Box } from '@mui/system';
-import { translate } from '../../../../@utils';
-import vaseProfile from '../../../../@assets/vaseProfile.jpg';
+import { translate } from '../../../../../@utils';
+import vaseProfile from '../../../../../@assets/vaseProfile.jpg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    margin: '30px 0px',
     padding: '30px',
     background: '#fff',
-    width: '100%',
     minWidth: '250px',
+    maxWidth: '300px',
   },
   profileHeader: {
     display: 'flex',
