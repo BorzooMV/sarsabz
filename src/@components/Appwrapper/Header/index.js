@@ -2,8 +2,9 @@ import React from 'react';
 import { Box } from '@mui/system';
 import { Avatar, Stack, IconButton } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Logout } from '@mui/icons-material';
+import profilePic from '../../../@assets/vaseProfile.jpg';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,8 +23,14 @@ const useStyles = makeStyles((theme) => ({
     width: '100px',
   },
 }));
+
 const Header = () => {
+  const navigate = useNavigate();
   const classes = useStyles();
+
+  const handleLogout = () => {
+    navigate('/login');
+  };
   return (
     <Box className={classes.root}>
       <Stack>LOGO</Stack>
@@ -42,8 +49,11 @@ const Header = () => {
         alignItems="center"
         justifyContent="space-between"
       >
-        <Avatar>P</Avatar>
-        <IconButton style={{ transform: 'rotate(180deg)' }}>
+        <Avatar src={profilePic} />
+        <IconButton
+          style={{ transform: 'rotate(180deg)' }}
+          onClick={handleLogout}
+        >
           <Logout color="white" />
         </IconButton>
       </Stack>
