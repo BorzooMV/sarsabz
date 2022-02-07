@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid } from '@mui/material';
 import UserInfo from './UserInfo';
-import Hero from './Hero';
+import Quotes from './Quotes';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
@@ -14,8 +14,8 @@ const Top = () => {
       <Grid item xs={12} md={6} lg={3}>
         <UserInfo />
       </Grid>
-      <Grid item xs={12} md={6} lg={9}>
-        <Hero />
+      <Grid item xs={12} md={6} lg={6}>
+        <Quotes />
       </Grid>
     </Grid>
   );
