@@ -3,6 +3,7 @@ import { Grid, Stack, Typography } from '@mui/material';
 import { Box } from '@mui/system';
 import { makeStyles } from '@mui/styles';
 import Top from './Top';
+import PlantsShow from './PlantsShow';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,7 +18,9 @@ const Dashboard = () => {
       <Grid item xs={12}>
         <Top />
       </Grid>
-      <Grid item xs={12}></Grid>
+      <Grid item xs={12}>
+        <PlantsShow />
+      </Grid>
     </Grid>
   );
 };

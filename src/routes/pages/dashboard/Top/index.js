@@ -5,7 +5,9 @@ import Quotes from './Quotes';
 import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    marginBottom: '40px',
+  },
 }));
 const Top = () => {
   const classes = useStyles();
