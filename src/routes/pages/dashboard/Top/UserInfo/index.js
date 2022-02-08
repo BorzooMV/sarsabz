@@ -11,6 +11,11 @@ const useStyles = makeStyles((theme) => ({
     background: '#fff',
     minWidth: '250px',
     maxWidth: '300px',
+    width: '100%',
+    height: '330px',
+    [theme.breakpoints.down('md')]: {
+      margin: 'auto',
+    },
   },
   profileHeader: {
     display: 'flex',

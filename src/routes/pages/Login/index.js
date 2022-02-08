@@ -10,6 +10,7 @@ import {
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import loginVase from '../../../@assets/loginVase.jpg';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -79,6 +80,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Login = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
+
+  const handleLogin = () => {
+    navigate('/');
+  };
   return (
     <Box className={classes.root} sx={{ boxShadow: 3 }}>
       <Grid container>
@@ -107,8 +113,13 @@ const Login = () => {
                 id="name"
                 size="small"
                 className={classes.textBox}
+                type="password"
               />
-              <Button variant="contained" className={classes.submitBtn}>
+              <Button
+                variant="contained"
+                className={classes.submitBtn}
+                onClick={handleLogin}
+              >
                 ورود
               </Button>
             </form>

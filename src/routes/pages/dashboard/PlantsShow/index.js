@@ -13,6 +13,9 @@ const useStyles = makeStyles((theme) => ({
     padding: '20px',
     border: '2px solid #eee',
   },
+  railContainer: {
+    width: '90%',
+  },
 }));
 const PlantsShow = () => {
   const classes = useStyles();
@@ -22,7 +25,9 @@ const PlantsShow = () => {
         گلدون‌ها
       </Typography>
       <Divider />
-      <PlantRails />
+      <Box className={classes.railContainer}>
+        <PlantRails />
+      </Box>
     </Box>
   );
 };
