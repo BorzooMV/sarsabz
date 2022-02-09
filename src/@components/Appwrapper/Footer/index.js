@@ -1,3 +1,4 @@
+import { GitHub, Instagram, LinkedIn } from '@mui/icons-material';
 import { Avatar, Box, Stack, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import React from 'react';
@@ -11,22 +12,34 @@ const useStyles = makeStyles((theme) => ({
   socials: {
     width: '10%',
   },
+  socialsAvatars: {
+    background: theme.palette.secondary.main,
+    transform: 'scale(0.8)',
+  },
 }));
 const Footer = () => {
   const classes = useStyles();
   return (
     <Box className={classes.root}>
       <Stack direction="row" justifyContent="space-between" alignItems="center">
+        <Typography color="secondary">
+          طراحی و اجرا به دست‌های برزو معظمی
+        </Typography>
         <Stack
           className={classes.socials}
           direction="row"
           justifyContent="space-evenly"
         >
-          <Avatar>S</Avatar>
-          <Avatar>S</Avatar>
-          <Avatar>S</Avatar>
+          <Avatar className={classes.socialsAvatars}>
+            <Instagram color="primary" />
+          </Avatar>
+          <Avatar className={classes.socialsAvatars}>
+            <GitHub color="primary" />
+          </Avatar>
+          <Avatar className={classes.socialsAvatars}>
+            <LinkedIn color="primary" />
+          </Avatar>
         </Stack>
-        <Typography>copyright sentence</Typography>
       </Stack>
     </Box>
   );
