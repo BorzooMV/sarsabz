@@ -31,6 +31,7 @@ const Header = () => {
   const handleLogout = () => {
     navigate('/login');
   };
+
   return (
     <Box className={classes.root}>
       <Stack>LOGO</Stack>
