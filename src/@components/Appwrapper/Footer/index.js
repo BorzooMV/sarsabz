@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
   socialsAvatars: {
     background: theme.palette.secondary.main,
+    transform: 'scale(0.8)',
   },
 }));
 const Footer = () => {
