@@ -2,8 +2,9 @@ import React from 'react';
 import { Avatar, Chip, Divider, Stack, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Box } from '@mui/system';
-import { translate } from '../../../../../@utils';
+import { translateNumber, translateRank } from '../../../../../@utils';
 import vaseProfile from '../../../../../@assets/vaseProfile.jpg';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -43,15 +44,17 @@ const useStyles = makeStyles((theme) => ({
 
 const UserInfo = () => {
   const classes = useStyles();
+  const name_fa = useSelector((Store) => Store.main.user.name_fa);
+  const rank = translateRank(useSelector((Store) => Store.main.user.rank));
   return (
     <Box className={classes.root} sx={{ boxShadow: 2 }}>
       <Box className={classes.profileHeader}>
         <Stack direction="column">
-          <Typography variant="h6">برزو</Typography>{' '}
-          <Typography variant="subtitle1">تازه کار</Typography>{' '}
+          <Typography variant="h6">{name_fa}</Typography>{' '}
+          <Typography variant="subtitle1">{rank}</Typography>{' '}
         </Stack>
         <Box className={classes.profilePicContainer}>
-          <img src={vaseProfile} className={classes.profilePic} />
+          <img src={vaseProfile} alt="" className={classes.profilePic} />
         </Box>
       </Box>
       <Divider sx={{ my: 2 }} />
@@ -61,13 +64,13 @@ const UserInfo = () => {
         direction="column"
       >
         <Chip
-          avatar={<Avatar>{translate(0)}</Avatar>}
+          avatar={<Avatar>{translateNumber(0)}</Avatar>}
           label="تعداد کار های امروز"
           variant="outlined"
           className={classes.infoChip}
         />
         <Chip
-          avatar={<Avatar>{translate(0)}</Avatar>}
+          avatar={<Avatar>{translateNumber(0)}</Avatar>}
           label="تعداد کار های امروز"
           variant="outlined"
           className={classes.infoChip}

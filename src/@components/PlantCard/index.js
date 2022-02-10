@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
   },
   imageContainer: {
     width: '200px',
-    width: '200px',
     overflow: 'hidden',
   },
   image: {
@@ -33,21 +32,21 @@ const useStyles = makeStyles((theme) => ({
     padding: '5px',
   },
 }));
-const PlantCard = ({ image }) => {
+const PlantCard = ({ image, name, race }) => {
   const classes = useStyles();
   return (
     <Box className={classes.root} sx={{ boxShadow: '3' }}>
       <Box className={classes.imageContainer}>
-        <img src={image} className={classes.image} />
+        <img src={image} className={classes.image} alt="plant_photo" />
       </Box>
       <Box className={classes.name}>
         <Stack direction="row" justifyContent="space-between">
           <Typography className={classes.itemsFont}>نام</Typography>
-          <Typography className={classes.itemsFont}>چیلی</Typography>
+          <Typography className={classes.itemsFont}>{name}</Typography>
         </Stack>
         <Stack direction="row" justifyContent="space-between">
-          <Typography className={classes.itemsFont}>از خانواده</Typography>
-          <Typography className={classes.itemsFont}>پپرومیا</Typography>
+          <Typography className={classes.itemsFont}>نژاد</Typography>
+          <Typography className={classes.itemsFont}>{race}</Typography>
         </Stack>
       </Box>
       <Box className={classes.footer}>

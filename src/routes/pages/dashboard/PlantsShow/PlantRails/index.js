@@ -1,8 +1,9 @@
 import React from 'react';
-import { Paper, Typography } from '@mui/material';
+import { Paper } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import PlantCard from '../../../../../@components/PlantCard';
 import ChiliPhoto from '../../../../../@assets/Chili.jpg';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,14 +16,17 @@ const useStyles = makeStyles((theme) => ({
 }));
 const Hero = () => {
   const classes = useStyles();
+  const plants = useSelector((Store) => Store.main.plants);
   return (
     <Paper elevation={2} className={classes.root}>
-      <PlantCard image={ChiliPhoto} />
-      <PlantCard image={ChiliPhoto} />
-      <PlantCard image={ChiliPhoto} />
-      <PlantCard image={ChiliPhoto} />
-      <PlantCard image={ChiliPhoto} />
-      <PlantCard image={ChiliPhoto} />
+      {plants.map((plant, i) => (
+        <PlantCard
+          key={i}
+          image={ChiliPhoto}
+          name={plant.name_fa}
+          race={plant.race_fa}
+        />
+      ))}
     </Paper>
   );
 };
