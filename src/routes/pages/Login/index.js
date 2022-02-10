@@ -127,7 +127,7 @@ const Login = () => {
         </Grid>
         <Grid item xs={12} sm={6}>
           <Box className={classes.imageContainer}>
-            <img className={classes.loginImage} src={loginVase} />
+            <img alt="" className={classes.loginImage} src={loginVase} />
           </Box>
         </Grid>
       </Grid>
