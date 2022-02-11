@@ -41,7 +41,7 @@ const Notes = () => {
       <Divider sx={{ my: 2 }} />
 
       <TextareaAutosize
-        placeholder="امروز چه خبر بود؟"
+        placeholder="امروز از گلدونات چه حسی گرفتی؟"
         className={classes.textArea}
         minRows={4}
       />
