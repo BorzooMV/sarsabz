@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
 import NotFound from './pages/404';
 import Dashboard from './pages/dashboard';
 import Plants from './pages/plants';
+import { useDispatch } from 'react-redux';
+import { get_user } from '../Redux/Actions/Main';
 
 const Navigation = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(get_user);
+  });
   return (
     <Routes>
       <Route path="/" element={<Dashboard />} />

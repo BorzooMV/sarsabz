@@ -18,12 +18,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const InfoBox = () => {
-  const plants = useSelector((Store) => Store.main.plants);
+  const user = useSelector((Store) => Store.main.user);
   const classes = useStyles();
   return (
     <Box className={classes.root}>
       <Typography className={classes.plantName}>
-        {plants[0]?.name_fa}
+        {user.user_plants?.plants[0]?.name_fa}
       </Typography>
       <Divider sx={{ my: 2 }} />
       <Box>
@@ -33,7 +33,7 @@ const InfoBox = () => {
           className={classes.itemStack}
         >
           <Typography>نژاد</Typography>
-          <Typography>{plants[0]?.race_fa}</Typography>
+          <Typography>{user.user_plants?.plants[0]?.race_fa}</Typography>
         </Stack>
       </Box>
     </Box>

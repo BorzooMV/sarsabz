@@ -1,9 +1,6 @@
 import { Grid } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import { getInitInfo } from '@utils';
-import { GetUserAndPlants } from 'constants/ActionCombo';
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import Spotlight from './spotlight';
 
 const useStyles = makeStyles((theme) => ({
@@ -11,13 +8,9 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '20px',
   },
 }));
+
 const Plants = () => {
   const classes = useStyles();
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    getInitInfo(dispatch, GetUserAndPlants);
-  });
 
   return (
     <Grid container className={classes.root}>

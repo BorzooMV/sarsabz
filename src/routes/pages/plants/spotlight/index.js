@@ -12,6 +12,7 @@ import { Box } from '@mui/system';
 import React from 'react';
 import Chili from '@assets/Chili.jpg';
 import InfoBox from './InfoBox';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,9 +31,18 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     height: 'auto',
   },
+  aboutTextArea: {
+    border: 'none',
+    height: '400px',
+    width: '80%',
+    padding: '10px 20px',
+    outline: 'none',
+    resize: 'none',
+  },
 }));
 const Spotlight = () => {
   const classes = useStyles();
+  const user = useSelector((Store) => Store.main.user);
   return (
     <Box className={classes.root} sx={{ boxShadow: 2 }}>
       <Grid container>
@@ -44,11 +54,15 @@ const Spotlight = () => {
         <Grid item xs={12} md={6} lg={8}>
           <InfoBox />
         </Grid>
-        <Divider />
         <Grid item xs={12}>
-          <Typography>title</Typography>
-          <Divider />
-          <TextareaAutosize value="Hello World" />
+          <Typography variant="h6" sx={{ mt: 3 }}>
+            درباره‌ی {user.user_plants?.plants[0].name_fa}
+          </Typography>
+          <Divider sx={{ my: 2 }} />
+          <TextareaAutosize
+            className={classes.aboutTextArea}
+            placeholder="مثلا میونش با نور چطوریه؟"
+          />
           <Stack direction="row">
             <IconButton>
               <Edit />

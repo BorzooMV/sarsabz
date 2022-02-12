@@ -16,10 +16,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 const Hero = () => {
   const classes = useStyles();
-  const plants = useSelector((Store) => Store.main.plants);
+  const user = useSelector((Store) => Store.main.user);
   return (
     <Paper elevation={2} className={classes.root}>
-      {plants.map((plant, i) => (
+      {user.user_plants?.plants.map((plant, i) => (
         <PlantCard
           key={i}
           image={ChiliPhoto}
