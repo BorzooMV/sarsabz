@@ -1,6 +1,7 @@
 import { Grid } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import React from 'react';
+import PlantList from './plantList';
 import Spotlight from './spotlight';
 
 const useStyles = makeStyles((theme) => ({
@@ -18,7 +19,7 @@ const Plants = () => {
         <Spotlight />
       </Grid>
       <Grid item xs={12}>
-        List
+        <PlantList />
       </Grid>
     </Grid>
   );
