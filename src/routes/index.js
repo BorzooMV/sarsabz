@@ -7,6 +7,7 @@ import Plants from './pages/plants';
 import { useDispatch } from 'react-redux';
 import { get_user } from '../Redux/Actions/Main';
 import About from './pages/about';
+import Profile from './pages/profile';
 
 const Navigation = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const Navigation = () => {
       <Route path="/login" element={<Login />} />
       <Route path="/plants" element={<Plants />} />
       <Route path="/about" element={<About />} />
+      <Route path="/profile" element={<Profile />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
