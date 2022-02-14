@@ -26,6 +26,9 @@ const useStyles = makeStyles((theme) => ({
     overflow: 'hidden',
     border: '2px solid #eee',
     borderRadius: '5px',
+    [theme.breakpoints.down('sm')]: {
+      margin: '20px auto',
+    },
   },
   img: {
     width: '100%',
@@ -46,12 +49,12 @@ const Spotlight = () => {
   return (
     <Box className={classes.root} sx={{ boxShadow: 2 }}>
       <Grid container>
-        <Grid item xs={12} md={6} lg={4}>
+        <Grid item xs={12} sm={6} md={6} lg={4}>
           <Box className={classes.imgContainer}>
             <img alt="" src={Chili} className={classes.img} />
           </Box>
         </Grid>
-        <Grid item xs={12} md={6} lg={8}>
+        <Grid item xs={12} sm={6} md={6} lg={8}>
           <InfoBox />
         </Grid>
         <Grid item xs={12}>
