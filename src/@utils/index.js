@@ -28,3 +28,23 @@ export const translateRank = (rank) => {
       return '';
   }
 };
+
+//A function for get initial information
+//about the user and his/her plants
+export const getInitInfo = (dispatch, actions) => {
+  const [
+    get_user_name,
+    get_user_name_fa,
+    get_user_rank,
+    get_user_join_date,
+    get_plants_count,
+    get_plants,
+  ] = actions;
+
+  dispatch(get_user_name);
+  dispatch(get_user_name_fa);
+  dispatch(get_user_rank);
+  dispatch(get_user_join_date);
+  dispatch(get_plants_count);
+  dispatch(get_plants);
+};

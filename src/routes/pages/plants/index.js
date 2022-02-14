@@ -1,27 +1,28 @@
-import React from 'react';
 import { Grid } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import Top from './Top';
-import PlantsShow from './PlantsShow';
+import React from 'react';
+import PlantList from './plantList';
+import Spotlight from './spotlight';
+
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: '85%',
-    margin: '20px auto',
+    marginTop: '20px',
   },
 }));
 
-const Dashboard = () => {
+const Plants = () => {
   const classes = useStyles();
+
   return (
     <Grid container className={classes.root}>
       <Grid item xs={12}>
-        <Top />
+        <Spotlight />
       </Grid>
       <Grid item xs={12}>
-        <PlantsShow />
+        <PlantList />
       </Grid>
     </Grid>
   );
 };
 
-export default Dashboard;
+export default Plants;

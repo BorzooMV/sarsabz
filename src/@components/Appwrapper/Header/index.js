@@ -40,7 +40,7 @@ const Header = () => {
         direction="row"
         justifyContent="space-evenly"
       >
-        <Link to="/dashboard">داشبرد</Link>
+        <Link to="/">داشبرد</Link>
         <Link to="/plants">گلدون ها</Link>
         <Link to="/about">درباره ی من</Link>
       </Stack>
