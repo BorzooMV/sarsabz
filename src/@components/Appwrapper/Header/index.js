@@ -32,6 +32,10 @@ const Header = () => {
     navigate('/login');
   };
 
+  const handleToProfile = () => {
+    navigate('/profile');
+  };
+
   return (
     <Box className={classes.root}>
       <Stack>LOGO</Stack>
@@ -50,7 +54,11 @@ const Header = () => {
         alignItems="center"
         justifyContent="space-between"
       >
-        <Avatar src={profilePic} />
+        <Avatar
+          src={profilePic}
+          onClick={handleToProfile}
+          style={{ cursor: 'pointer' }}
+        />
         <IconButton
           style={{ transform: 'rotate(180deg)' }}
           onClick={handleLogout}

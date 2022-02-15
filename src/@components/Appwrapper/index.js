@@ -2,7 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import { useLocation } from 'react-router-dom';
-import { Box } from '@mui/material';
+import { Box, Stack } from '@mui/material';
 
 const AppWrapper = ({ children }) => {
   const location = useLocation();
@@ -12,8 +12,14 @@ const AppWrapper = ({ children }) => {
   return (
     <Box>
       <Header />
-      {children}
-      <Footer />
+      <Stack
+        direction="column"
+        justifyContent="space-between"
+        style={{ height: '100vh' }}
+      >
+        {children}
+        <Footer />
+      </Stack>
     </Box>
   );
 };
