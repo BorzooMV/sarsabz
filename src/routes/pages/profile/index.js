@@ -9,6 +9,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     padding: '20px',
     margin: '20px',
+    [theme.breakpoints.down('sm')]: {
+      margin: 'auto',
+    },
   },
   profileImgContainer: {
     width: '60',
@@ -31,12 +34,12 @@ const Profile = () => {
   const name_fa = useSelector((Store) => Store.main.user.name_fa);
   return (
     <Grid container className={classes.root}>
-      <Grid item xs={12} sm={6} md={3}>
+      <Grid item xs={12} sm={3}>
         <Box className={classes.profileImgContainer}>
           <img alt="" src={profilePic} className={classes.profileImg} />
         </Box>
       </Grid>
-      <Grid item xs={12} sm={6} md={9} className={classes.infoRoot}>
+      <Grid item xs={12} sm={9} className={classes.infoRoot}>
         <Box>
           <Typography variant="h4">{name_fa}</Typography>
           <Divider sx={{ my: 3 }} />
