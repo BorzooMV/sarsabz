@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box } from '@mui/system';
 import { Avatar, Stack, IconButton } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Link, useNavigate } from 'react-router-dom';
-import { Logout } from '@mui/icons-material';
+import { Logout, Menu } from '@mui/icons-material';
 import profilePic from '../../../@assets/vaseProfile.jpg';
+import HamMenu from './HamMenu';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,16 +16,31 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
+    position: 'relative',
   },
   menus: {
     width: '30%',
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    },
   },
   logOut: {
     width: '100px',
   },
+  logo: {
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    },
+  },
+  menuBtn: {
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
+  },
 }));
 
 const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const navigate = useNavigate();
   const classes = useStyles();
 
@@ -36,9 +52,25 @@ const Header = () => {
     navigate('/profile');
   };
 
+  const handleToggleHamMenu = () => {
+    if (isMenuOpen) {
+      setIsMenuOpen(false);
+    } else {
+      setIsMenuOpen(true);
+    }
+    console.log(isMenuOpen);
+  };
+
   return (
     <Box className={classes.root}>
-      <Stack>LOGO</Stack>
+      <HamMenu isOpen={isMenuOpen} />
+      <Stack className={classes.logo}>LOGO</Stack>
+      <Stack className={classes.menuBtn}>
+        <IconButton onClick={handleToggleHamMenu}>
+          <Menu style={{ color: '#fff' }} />
+        </IconButton>
+      </Stack>
+
       <Stack
         className={classes.menus}
         direction="row"
