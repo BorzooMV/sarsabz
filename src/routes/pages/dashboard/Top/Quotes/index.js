@@ -1,7 +1,8 @@
 import { AddCircle } from '@mui/icons-material';
 import { Box, Button, Divider, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,6 +18,9 @@ const useStyles = makeStyles((theme) => ({
 
 const Quotes = () => {
   const classes = useStyles();
+  const quotes = useSelector((Store) => Store.main.quotes);
+
+  console.log(quotes);
   return (
     <Box className={classes.root} sx={{ boxShadow: 2 }}>
       <Typography className={classes.header} variant="h5">
