@@ -16,7 +16,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    position: 'relative',
   },
   menus: {
     width: '30%',
@@ -39,8 +38,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Header = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const Header = ({
+  hamburgerRef,
+  hamburgerMenuCondition,
+  handleToggleHamMenu,
+}) => {
   const navigate = useNavigate();
   const classes = useStyles();
 
@@ -52,18 +54,9 @@ const Header = () => {
     navigate('/profile');
   };
 
-  const handleToggleHamMenu = () => {
-    if (isMenuOpen) {
-      setIsMenuOpen(false);
-    } else {
-      setIsMenuOpen(true);
-    }
-    console.log(isMenuOpen);
-  };
-
   return (
     <Box className={classes.root}>
-      <HamMenu isOpen={isMenuOpen} />
+      <HamMenu isOpen={hamburgerMenuCondition} hamburgerRef={hamburgerRef} />
       <Stack className={classes.logo}>LOGO</Stack>
       <Stack className={classes.menuBtn}>
         <IconButton onClick={handleToggleHamMenu}>

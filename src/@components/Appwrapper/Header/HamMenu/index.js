@@ -7,13 +7,16 @@ import clsx from 'clsx';
 const useStyles = makeStyles((theme) => ({
   root: {
     background: '#FFF',
-    padding: '20px',
-    borderRadius: '5px',
+    padding: '20px 20px',
+    paddingLeft: '20%',
+    borderRadius: '10px',
+    borderTopRightRadius: '0px',
+    borderBottomRightRadius: '0px',
     color: '#000',
     position: 'absolute',
-    width: '65%',
     right: '0px',
-    top: '100%',
+    top: '0%',
+    zIndex: '2',
     transition: 'all 200ms ease-in-out',
   },
   offScreen: {
@@ -24,10 +27,11 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'pointer',
   },
 }));
-const HamMenu = ({ isOpen }) => {
+const HamMenu = ({ isOpen, hamburgerRef }) => {
   const classes = useStyles();
   return (
     <Stack
+      ref={hamburgerRef}
       className={isOpen ? classes.root : clsx(classes.root, classes.offScreen)}
       sx={{ boxShadow: 3 }}
       direction="column"
