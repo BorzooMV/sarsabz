@@ -3,8 +3,9 @@ import { Box } from '@mui/system';
 import { Avatar, Stack, IconButton } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Link, useNavigate } from 'react-router-dom';
-import { Logout } from '@mui/icons-material';
+import { Logout, Menu } from '@mui/icons-material';
 import profilePic from '../../../@assets/vaseProfile.jpg';
+import HamMenu from './HamMenu';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -18,13 +19,30 @@ const useStyles = makeStyles((theme) => ({
   },
   menus: {
     width: '30%',
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    },
   },
   logOut: {
     width: '100px',
   },
+  logo: {
+    [theme.breakpoints.down('md')]: {
+      display: 'none',
+    },
+  },
+  menuBtn: {
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    },
+  },
 }));
 
-const Header = () => {
+const Header = ({
+  hamburgerRef,
+  hamburgerMenuCondition,
+  handleToggleHamMenu,
+}) => {
   const navigate = useNavigate();
   const classes = useStyles();
 
@@ -38,7 +56,14 @@ const Header = () => {
 
   return (
     <Box className={classes.root}>
-      <Stack>LOGO</Stack>
+      <HamMenu isOpen={hamburgerMenuCondition} hamburgerRef={hamburgerRef} />
+      <Stack className={classes.logo}>LOGO</Stack>
+      <Stack className={classes.menuBtn}>
+        <IconButton onClick={handleToggleHamMenu}>
+          <Menu style={{ color: '#fff' }} />
+        </IconButton>
+      </Stack>
+
       <Stack
         className={classes.menus}
         direction="row"

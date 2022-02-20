@@ -5,7 +5,7 @@ import NotFound from './pages/404';
 import Dashboard from './pages/dashboard';
 import Plants from './pages/plants';
 import { useDispatch } from 'react-redux';
-import { get_user } from '../Redux/Actions/Main';
+import { get_user, get_quotes } from '../Redux/Actions/Main';
 import About from './pages/about';
 import Profile from './pages/profile';
 
@@ -13,6 +13,7 @@ const Navigation = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(get_user);
+    dispatch(get_quotes);
   });
   return (
     <Routes>

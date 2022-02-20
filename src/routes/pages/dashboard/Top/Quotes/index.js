@@ -1,7 +1,8 @@
 import { AddCircle } from '@mui/icons-material';
 import { Box, Button, Divider, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -16,16 +17,36 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Quotes = () => {
+  const [randomQuote, setRandomQuote] = useState('');
   const classes = useStyles();
+  const quotes = useSelector((Store) => Store.main.quotes);
+
+  const combineQuotes = (quotes) => {
+    let arrayOfQoutes = [];
+
+    for (let q of quotes) {
+      arrayOfQoutes.push(q.text);
+    }
+
+    return arrayOfQoutes;
+  };
+
+  const giveRandomQuote = (arrayOfQoutes) => {
+    let randomIndex = Math.floor(Math.random() * arrayOfQoutes.length);
+    return arrayOfQoutes[randomIndex];
+  };
+
+  useEffect(() => {
+    setRandomQuote(giveRandomQuote(combineQuotes(quotes)));
+  }, [quotes]);
+
   return (
     <Box className={classes.root} sx={{ boxShadow: 2 }}>
       <Typography className={classes.header} variant="h5">
-        جمله‌ی روز
+        حرف حساب
       </Typography>
       <Divider sx={{ my: 2 }} />
-      <Typography paragraph>
-        به راه بادیه رفتن به از نشستن باطل، که گر مراد نیابیم به قدر وسع بکوشیم.
-      </Typography>
+      <Typography paragraph>{randomQuote ? randomQuote : ''}</Typography>
       <Box className={classes.footer}>
         <Button
           variant="contained"

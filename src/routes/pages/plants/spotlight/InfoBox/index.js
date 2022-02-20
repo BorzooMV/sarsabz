@@ -1,4 +1,4 @@
-import { Divider, Paper, Typography, Stack, Box } from '@mui/material';
+import { Divider, Typography, Stack, Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import React from 'react';
 import { useSelector } from 'react-redux';
