@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Box } from '@mui/system';
 import { Avatar, Stack, IconButton } from '@mui/material';
 import { makeStyles } from '@mui/styles';

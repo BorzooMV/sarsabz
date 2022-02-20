@@ -43,7 +43,7 @@ const Quotes = () => {
   return (
     <Box className={classes.root} sx={{ boxShadow: 2 }}>
       <Typography className={classes.header} variant="h5">
-        جمله‌ی روز
+        حرف حساب
       </Typography>
       <Divider sx={{ my: 2 }} />
       <Typography paragraph>{randomQuote ? randomQuote : ''}</Typography>
