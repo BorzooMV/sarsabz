@@ -1,4 +1,4 @@
-import { Save } from '@mui/icons-material';
+import { Archive, Save } from '@mui/icons-material';
 import {
   Box,
   Divider,
@@ -9,6 +9,7 @@ import {
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -34,6 +35,11 @@ const useStyles = makeStyles((theme) => ({
 
 const Notes = () => {
   const classes = useStyles();
+  const navigate = useNavigate();
+
+  const goToArchive = () => {
+    navigate('/notes');
+  };
 
   return (
     <Box sx={{ boxShadow: 2 }} className={classes.root}>
@@ -48,6 +54,9 @@ const Notes = () => {
       <Stack direction="row" className={classes.footer}>
         <IconButton>
           <Save color="primary" />
+        </IconButton>
+        <IconButton onClick={goToArchive}>
+          <Archive color="primary" />
         </IconButton>
       </Stack>
     </Box>

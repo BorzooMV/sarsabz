@@ -1,4 +1,4 @@
-import { GET_USER, GET_QUOTES } from 'constants/ActionTypes';
+import { GET_USER, GET_QUOTES, SAVE_NOTE } from 'constants/ActionTypes';
 
 import { users, quotes as dbQuotes } from '@fakeDB';
 
