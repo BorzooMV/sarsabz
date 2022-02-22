@@ -28,7 +28,11 @@ const Notes = () => {
           <Typography variant="h5" sx={{ ml: 2 }}>
             نوشته‌ها
           </Typography>
-          <Chip variant="contained" color="secondary" label={5} />
+          <Chip
+            variant="contained"
+            color="secondary"
+            label={userNotes?.length}
+          />
         </Paper>
       </Grid>
       {userNotes?.map((n, i) => (
