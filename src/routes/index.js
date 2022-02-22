@@ -8,6 +8,7 @@ import { useDispatch } from 'react-redux';
 import { get_user, get_quotes } from '../Redux/Actions/Main';
 import About from './pages/about';
 import Profile from './pages/profile';
+import Notes from './pages/notes';
 
 const Navigation = () => {
   const dispatch = useDispatch();
@@ -22,6 +23,7 @@ const Navigation = () => {
       <Route path="/plants" element={<Plants />} />
       <Route path="/about" element={<About />} />
       <Route path="/profile" element={<Profile />} />
+      <Route path="/notes" element={<Notes />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );
