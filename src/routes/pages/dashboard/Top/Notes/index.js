@@ -11,7 +11,7 @@ import {
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { save_note } from 'Redux/Actions/Main';
 
@@ -44,14 +44,12 @@ const Notes = () => {
   const classes = useStyles();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const notes = useSelector((Store) => Store.main.user.user_notes);
 
   const goToArchive = () => {
     navigate('/notes');
   };
 
   const saveNote = (text) => {
-    const today = new Date();
     if (text) {
       dispatch(save_note(text));
       openSnack();

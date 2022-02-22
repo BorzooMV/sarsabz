@@ -47,6 +47,7 @@ const Header = ({
   const classes = useStyles();
 
   const handleLogout = () => {
+    localStorage.removeItem('userId');
     navigate('/login');
   };
 

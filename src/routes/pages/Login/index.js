@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
   Box,
   Button,
@@ -11,6 +11,7 @@ import {
 import { makeStyles } from '@mui/styles';
 import loginVase from '../../../@assets/loginVase.jpg';
 import { useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -79,12 +80,34 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Login = () => {
+  const [inputUsername, setInputUsername] = useState();
+  const [inputPassword, setInputPassword] = useState();
   const classes = useStyles();
   const navigate = useNavigate();
 
+  const user = useSelector((Store) => Store.main.user);
+
+  const auth = (InputUser, InputPass) => {
+    if (InputUser === user.username && InputPass === user.password) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
   const handleLogin = () => {
+    if (auth(inputUsername, inputPassword)) {
+      localStorage.setItem('userId', JSON.stringify(user?.id));
+    }
     navigate('/');
   };
+
+  const handleKeyPress = (e) => {
+    if (e.code === 'Enter') {
+      handleLogin();
+    }
+  };
+
   return (
     <Box className={classes.root} sx={{ boxShadow: 3 }}>
       <Grid container>
@@ -101,19 +124,21 @@ const Login = () => {
               component="hr"
               className={classes.divider}
             />
-            <form>
+            <form onKeyPress={(e) => handleKeyPress(e)}>
               <TextField
                 label="نام کاربری"
                 id="name"
                 size="small"
                 className={classes.textBox}
+                onChange={(e) => setInputUsername(e.target.value)}
               />
               <TextField
                 label="کلمه‌ی عبور"
-                id="name"
+                id="pass"
                 size="small"
                 className={classes.textBox}
                 type="password"
+                onChange={(e) => setInputPassword(e.target.value)}
               />
               <Button
                 variant="contained"

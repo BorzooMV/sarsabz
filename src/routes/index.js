@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import Login from './pages/Login';
 import NotFound from './pages/404';
 import Dashboard from './pages/dashboard';
@@ -11,19 +11,61 @@ import Profile from './pages/profile';
 import Notes from './pages/notes';
 
 const Navigation = () => {
+  const [userId, setUserId] = useState(localStorage.getItem('userId'));
   const dispatch = useDispatch();
+
   useEffect(() => {
     dispatch(get_user);
     dispatch(get_quotes);
-  });
+  }, []);
+
+  const PrivateRoute = ({ children }) => {
+    return userId ? children : <Navigate to="/login" />;
+  };
+
   return (
     <Routes>
-      <Route path="/" element={<Dashboard />} />
+      <Route
+        path="/"
+        element={
+          <PrivateRoute>
+            <Dashboard />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/plants"
+        element={
+          <PrivateRoute>
+            <Plants />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <PrivateRoute>
+            <Profile />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/notes"
+        element={
+          <PrivateRoute>
+            <Notes />
+          </PrivateRoute>
+        }
+      />
+      <Route
+        path="/about"
+        element={
+          <PrivateRoute>
+            <About />
+          </PrivateRoute>
+        }
+      />
       <Route path="/login" element={<Login />} />
-      <Route path="/plants" element={<Plants />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/profile" element={<Profile />} />
-      <Route path="/notes" element={<Notes />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

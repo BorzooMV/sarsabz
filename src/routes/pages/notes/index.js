@@ -1,4 +1,4 @@
-import { Chip, Grid, Paper, Stack, Typography } from '@mui/material';
+import { Chip, Grid, Paper, Typography } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import React from 'react';
 import { useSelector } from 'react-redux';
