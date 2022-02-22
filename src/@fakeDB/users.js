@@ -1,6 +1,8 @@
 export const users = [
   {
     id: '001',
+    username: 'borzoo',
+    password: 'lotus',
     name: 'Borzoo',
     name_fa: 'برزو',
     join_date: '2022-02-10 11:00:00',
