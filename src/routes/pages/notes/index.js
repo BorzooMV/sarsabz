@@ -37,7 +37,7 @@ const Notes = () => {
       </Grid>
       {userNotes?.map((n, i) => (
         <Grid item xs={12} md={6} key={i}>
-          <Sheet text={n.text} date={n.date} key={i} />
+          <Sheet text={n.text} date={n.date} key={i} id={n.id} />
         </Grid>
       ))}
     </Grid>
