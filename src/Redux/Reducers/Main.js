@@ -1,4 +1,9 @@
-import { GET_USER, GET_QUOTES, SAVE_NOTE } from 'constants/ActionTypes';
+import {
+  GET_USER,
+  GET_QUOTES,
+  SAVE_NOTE,
+  DELETE_NOTE,
+} from 'constants/ActionTypes';
 
 import { users, quotes as dbQuotes } from '@fakeDB';
 
@@ -26,6 +31,19 @@ export default (state = INIT_STATE, action) => {
               date: new Date(),
               text: action.payload,
             },
+          ],
+        },
+      };
+
+    case DELETE_NOTE:
+      return {
+        ...state,
+        user: {
+          ...state.user,
+          user_notes: [
+            ...state.user.user_notes.filter(
+              (note) => note.id !== action.payload
+            ),
           ],
         },
       };
