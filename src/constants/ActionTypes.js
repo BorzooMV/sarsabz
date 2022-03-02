@@ -1,5 +1,6 @@
 //USER
-export const GET_USER = 'get_user';
+export const GET_USERS = 'get_users';
+export const SET_USER = 'set_user';
 
 //QUOTES
 export const GET_QUOTES = 'get_quotes';

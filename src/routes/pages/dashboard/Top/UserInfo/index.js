@@ -44,8 +44,9 @@ const useStyles = makeStyles((theme) => ({
 
 const UserInfo = () => {
   const classes = useStyles();
-  const name_fa = useSelector((Store) => Store.main.user.name_fa);
-  const rank = translateRank(useSelector((Store) => Store.main.user.rank));
+  const name_fa = useSelector((Store) => Store.auth.user.name_fa);
+  const rank = translateRank(useSelector((Store) => Store.auth.user.rank));
+
   return (
     <Box className={classes.root} sx={{ boxShadow: 2 }}>
       <Box className={classes.profileHeader}>

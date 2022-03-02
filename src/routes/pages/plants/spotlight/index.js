@@ -45,7 +45,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 const Spotlight = () => {
   const classes = useStyles();
-  const user = useSelector((Store) => Store.main.user);
+  const user = useSelector((Store) => Store.auth.user);
+  console.log('plantUser >>>>>>>>', user);
   return (
     <Box className={classes.root} sx={{ boxShadow: 2 }}>
       <Grid container>
@@ -58,9 +59,7 @@ const Spotlight = () => {
           <InfoBox />
         </Grid>
         <Grid item xs={12}>
-          <Typography variant="h6" sx={{ mt: 3 }}>
-            درباره‌ی {user.user_plants?.plants[0].name_fa}
-          </Typography>
+          <Typography variant="h6" sx={{ mt: 3 }}></Typography>
           <Divider sx={{ my: 2 }} />
           <TextareaAutosize
             className={classes.aboutTextArea}

@@ -18,12 +18,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const InfoBox = () => {
-  const user = useSelector((Store) => Store.main.user);
+  const user = useSelector((Store) => Store.auth.user);
   const classes = useStyles();
   return (
     <Box className={classes.root}>
       <Typography className={classes.plantName}>
-        {user.user_plants?.plants[0]?.name_fa}
+        {user?.user_plants?.plants[0]?.name_fa}
       </Typography>
       <Divider sx={{ my: 2 }} />
       <Box>
