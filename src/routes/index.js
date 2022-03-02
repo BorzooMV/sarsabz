@@ -5,22 +5,23 @@ import NotFound from './pages/404';
 import Dashboard from './pages/dashboard';
 import Plants from './pages/plants';
 import { useDispatch } from 'react-redux';
-import { get_user, get_quotes } from '../Redux/Actions/Main';
+import { get_quotes, get_users } from '../Redux/Actions/Main';
 import About from './pages/about';
 import Profile from './pages/profile';
 import Notes from './pages/notes';
+import { useSelector } from 'react-redux';
 
 const Navigation = () => {
-  const [userId, setUserId] = useState(localStorage.getItem('userId'));
+  const [user, setUser] = useState(useSelector((store) => store.auth.user));
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(get_user);
     dispatch(get_quotes);
-  }, []);
+    dispatch(get_users);
+  });
 
   const PrivateRoute = ({ children }) => {
-    return userId ? children : <Navigate to="/login" />;
+    return user.id ? children : <Navigate to="/login" />;
   };
 
   return (

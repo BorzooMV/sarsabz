@@ -6,6 +6,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Logout, Menu } from '@mui/icons-material';
 import profilePic from '../../../@assets/vaseProfile.jpg';
 import HamMenu from './HamMenu';
+import { set_user } from 'Redux/Actions/Auth';
+import { useDispatch } from 'react-redux';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,9 +47,10 @@ const Header = ({
 }) => {
   const navigate = useNavigate();
   const classes = useStyles();
+  const dispatch = useDispatch();
 
   const handleLogout = () => {
-    localStorage.removeItem('userId');
+    dispatch(set_user('empty'));
     navigate('/login');
   };
 

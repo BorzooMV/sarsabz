@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Profile = () => {
   const classes = useStyles();
-  const name_fa = useSelector((Store) => Store.main.user.name_fa);
+  const name_fa = useSelector((Store) => Store.auth.user.name_fa);
   return (
     <Grid container className={classes.root}>
       <Grid item xs={12} sm={3}>

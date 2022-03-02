@@ -1,6 +1,7 @@
-import { Delete } from '@mui/icons-material';
+import { Delete, KeyboardArrowDown } from '@mui/icons-material';
 import {
   Box,
+  Button,
   Divider,
   IconButton,
   Paper,
@@ -12,7 +13,7 @@ import { translateNumber } from '@utils';
 import clsx from 'clsx';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { delete_note } from 'Redux/Actions/Main';
+import { delete_note } from 'Redux/Actions/Auth';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,7 +33,7 @@ const useStyles = makeStyles((theme) => ({
 const Sheet = ({ text, date, id }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const classes = useStyles();
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
 
   const createDate = (date) => {
     const d = new Date(date);
@@ -44,7 +45,7 @@ const Sheet = ({ text, date, id }) => {
   };
 
   const handleDelete = () => {
-    dispath(delete_note(id));
+    dispatch(delete_note(id));
   };
 
   return (

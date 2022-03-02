@@ -3,6 +3,7 @@ import { Grid } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import Top from './Top';
 import PlantsShow from './PlantsShow';
+
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '85%',
@@ -12,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Dashboard = () => {
   const classes = useStyles();
+
   return (
     <Grid container className={classes.root}>
       <Grid item xs={12}>

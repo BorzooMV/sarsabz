@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Notes = () => {
   const classes = useStyles();
-  const userNotes = useSelector((Store) => Store.main.user.user_notes);
+  const userNotes = useSelector((Store) => Store.auth.user.user_notes);
 
   return (
     <Grid container className={classes.root} spacing={4}>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   Box,
   Button,
@@ -11,7 +11,9 @@ import {
 import { makeStyles } from '@mui/styles';
 import loginVase from '../../../@assets/loginVase.jpg';
 import { useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { set_user } from 'Redux/Actions/Auth';
+import { get_users } from 'Redux/Actions/Main';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -84,12 +86,30 @@ const Login = () => {
   const [inputPassword, setInputPassword] = useState();
   const classes = useStyles();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
-  const user = useSelector((Store) => Store.main.user);
+  const users = useSelector((Store) => Store.main.users);
 
-  const auth = (InputUser, InputPass) => {
-    if (InputUser === user.username && InputPass === user.password) {
-      return true;
+  const auth = (inputUser, inputPass) => {
+    //  if (users.findIndex((usr) => usr.username === inputUser) !== -1) {
+    //    const selectedUser = users.find((user) => user.username === inputUser);
+    //    if (inputPass === selectedUser.password) {
+    //      dispatch(set_user(selectedUser));
+    //      return true;
+    //    } else {
+    //      return false;
+    //    }
+    //  } else {
+    //    return false;
+    //  }
+    if (users.findIndex((user) => user.username === inputUser) !== -1) {
+      const selectedUser = users.find((user) => user.username === inputUser);
+      if (inputPass === selectedUser.password) {
+        dispatch(set_user(selectedUser));
+        return true;
+      } else {
+        return false;
+      }
     } else {
       return false;
     }
@@ -97,9 +117,10 @@ const Login = () => {
 
   const handleLogin = () => {
     if (auth(inputUsername, inputPassword)) {
-      localStorage.setItem('userId', JSON.stringify(user?.id));
+      navigate('/');
+    } else {
+      console.log('wrong entry');
     }
-    navigate('/');
   };
 
   const handleKeyPress = (e) => {

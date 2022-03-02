@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 const Hero = () => {
   const classes = useStyles();
-  const user = useSelector((Store) => Store.main.user);
+  const user = useSelector((Store) => Store.auth.user);
   return (
     <Paper elevation={2} className={classes.root}>
       {user.user_plants?.plants.map((plant, i) => (

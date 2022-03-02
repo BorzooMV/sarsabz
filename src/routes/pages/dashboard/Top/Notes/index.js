@@ -13,7 +13,7 @@ import { makeStyles } from '@mui/styles';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import { save_note } from 'Redux/Actions/Main';
+import { save_note } from 'Redux/Actions/Auth';
 
 const useStyles = makeStyles((theme) => ({
   root: {
