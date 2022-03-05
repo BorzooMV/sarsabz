@@ -10,10 +10,11 @@ import {
   Alert,
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { save_note } from 'Redux/Actions/Auth';
+import { v4 as uuidv4 } from 'uuid';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,7 +52,8 @@ const Notes = () => {
 
   const saveNote = (text) => {
     if (text) {
-      dispatch(save_note(text));
+      const newId = uuidv4();
+      dispatch(save_note(newId, text));
       openSnack();
     } else {
       openError();

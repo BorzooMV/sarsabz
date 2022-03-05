@@ -5,9 +5,12 @@ export const set_user = (user) => ({
   payload: user,
 });
 
-export const save_note = (payload) => ({
+export const save_note = (noteId, text) => ({
   type: SAVE_NOTE,
-  payload: payload,
+  payload: {
+    noteId,
+    text,
+  },
 });
 
 export const delete_note = (noteID) => ({
