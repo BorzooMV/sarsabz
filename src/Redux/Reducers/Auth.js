@@ -17,8 +17,9 @@ export default (state = INIT_STATE, action) => {
           user_notes: [
             ...state.user.user_notes,
             {
+              id: action.payload.noteId,
               date: new Date(),
-              text: action.payload,
+              text: action.payload.text,
             },
           ],
         },
@@ -26,14 +27,11 @@ export default (state = INIT_STATE, action) => {
 
     case DELETE_NOTE:
       return {
-        ...state,
         user: {
           ...state.user,
-          user_notes: [
-            ...state.user.user_notes.filter(
-              (note) => note.id !== action.payload
-            ),
-          ],
+          user_notes: [...state.user.user_notes].filter(
+            (user) => user.id !== action.payload
+          ),
         },
       };
 
