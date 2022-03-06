@@ -1,0 +1,18 @@
+{
+  "files": {
+    "main.css": "/sarsabz/static/css/main.d498bfb3.chunk.css",
+    "main.js": "/sarsabz/static/js/main.d1bbf299.chunk.js",
+    "main.js.map": "/sarsabz/static/js/main.d1bbf299.chunk.js.map",
+    "runtime~main.js": "/sarsabz/static/js/runtime~main.11e37e62.js",
+    "runtime~main.js.map": "/sarsabz/static/js/runtime~main.11e37e62.js.map",
+    "static/js/2.2cd08ee6.chunk.js": "/sarsabz/static/js/2.2cd08ee6.chunk.js",
+    "static/js/2.2cd08ee6.chunk.js.map": "/sarsabz/static/js/2.2cd08ee6.chunk.js.map",
+    "index.html": "/sarsabz/index.html",
+    "precache-manifest.29148103ca7fb234a6b036f132a8f2fc.js": "/sarsabz/precache-manifest.29148103ca7fb234a6b036f132a8f2fc.js",
+    "service-worker.js": "/sarsabz/service-worker.js",
+    "static/css/main.d498bfb3.chunk.css.map": "/sarsabz/static/css/main.d498bfb3.chunk.css.map",
+    "static/media/Chili.jpg": "/sarsabz/static/media/Chili.2f515bb1.jpg",
+    "static/media/loginVase.jpg": "/sarsabz/static/media/loginVase.7e110760.jpg",
+    "static/media/vaseProfile.jpg": "/sarsabz/static/media/vaseProfile.e990e24f.jpg"
+  }
+}

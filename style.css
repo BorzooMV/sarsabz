@@ -1,0 +1,21 @@
+*{
+	padding: 0px;
+	margin: 0px;
+	box-sizing: border-box;
+}
+
+html{
+	overflow-x: hidden
+}
+
+body{
+	overflow-x: hidden;
+}
+
+a,
+a:active,
+a:visited{
+	text-decoration:none;
+	color: inherit;
+}
+
