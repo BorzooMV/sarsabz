@@ -1,10 +1,20 @@
-import React from 'react';
-import { Avatar, Chip, Divider, Stack, Typography } from '@mui/material';
+import React, { useState } from 'react';
+import {
+  Avatar,
+  Button,
+  Chip,
+  Divider,
+  Modal,
+  Paper,
+  Stack,
+  Typography,
+} from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import { Box } from '@mui/system';
 import { translateNumber, translateRank } from '../../../../../@utils';
 import vaseProfile from '../../../../../@assets/vaseProfile.jpg';
 import { useSelector } from 'react-redux';
+import Calendar from '@components/Calendar';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -38,14 +48,33 @@ const useStyles = makeStyles((theme) => ({
     height: 'auto',
   },
   infoChip: {
-    margin: '10px',
+    margin: '10px auto',
+    borderRadius: '5px',
+    width: '100%',
+  },
+  calendarModalRoot: {
+    position: 'fixed',
+    width: '40%',
+    left: '50%',
+    top: '20%',
+    transform: 'translateX(-50%)',
+    padding: '20px',
   },
 }));
 
 const UserInfo = () => {
+  const [calendarOpen, setCalendarOpen] = useState(false);
   const classes = useStyles();
   const name_fa = useSelector((Store) => Store.auth.user.name_fa);
   const rank = translateRank(useSelector((Store) => Store.auth.user.rank));
+
+  const openCalendar = () => {
+    setCalendarOpen(true);
+  };
+
+  const closeCalendar = () => {
+    setCalendarOpen(false);
+  };
 
   return (
     <Box className={classes.root} sx={{ boxShadow: 2 }}>
@@ -67,15 +96,17 @@ const UserInfo = () => {
         <Chip
           avatar={<Avatar>{translateNumber(0)}</Avatar>}
           label="تعداد کار های امروز"
-          variant="outlined"
+          variant="contained"
           className={classes.infoChip}
         />
-        <Chip
-          avatar={<Avatar>{translateNumber(0)}</Avatar>}
-          label="تعداد کار های امروز"
-          variant="outlined"
-          className={classes.infoChip}
-        />
+        <Button onClick={openCalendar} variant="outlined">
+          تقویم
+        </Button>
+        <Modal open={calendarOpen} onClose={closeCalendar}>
+          <Paper elevation={3} className={classes.calendarModalRoot}>
+            <Calendar />
+          </Paper>
+        </Modal>
       </Stack>
     </Box>
   );
